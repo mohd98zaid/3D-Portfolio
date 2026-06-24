@@ -87,20 +87,19 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>AI & AUTOMATION</h3>
-              <h4>Workflow Intelligence for Organizations</h4>
+              <h3>GENAI &amp; LLM SYSTEMS</h3>
+              <h4>Production-Grade AI Pipelines</h4>
               <p>
-                AI specialist helping organizations automate workflows—internal ops
-                and customer-facing—so teams ship faster with less manual work.
+                Delivering production-ready LLM solutions. Expertise in complex RAG workflows, agentic AI, and legacy code modernization for enterprise clients.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Skillset &amp; tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">LLMs &amp; agents</div>
-                <div className="what-tags">Workflow design</div>
-                <div className="what-tags">RAG &amp; retrieval</div>
-                <div className="what-tags">Evals &amp; guardrails</div>
-                <div className="what-tags">Integrations</div>
-                <div className="what-tags">Product strategy</div>
+                <div className="what-tags">LangChain / LangGraph</div>
+                <div className="what-tags">Claude AI / GPT</div>
+                <div className="what-tags">RAG &amp; vector DBs</div>
+                <div className="what-tags">Agentic workflows</div>
+                <div className="what-tags">Prompt engineering</div>
+                <div className="what-tags">Fine-tuning</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -124,21 +123,19 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>BUILD &amp; SCALE</h3>
-              <h4>Shipping AI in Production</h4>
+              <h3>BUILD &amp; SHIP</h3>
+              <h4>Full-Stack GenAI Products</h4>
               <p>
-                I build the systems behind it: APIs, data, voice/real-time, and
-                full-stack products—production-ready, not slide decks.
+                Full-stack engineering from the ground up. Seamlessly connecting high-performance FastAPI backends and vector databases to sleek, real-time AI dashboards.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Skillset &amp; tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Python</div>
-                <div className="what-tags">REST &amp; real-time APIs</div>
-                <div className="what-tags">PostgreSQL</div>
-                <div className="what-tags">MongoDB</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Cloud &amp; infra</div>
+                <div className="what-tags">Python / FastAPI</div>
+                <div className="what-tags">PostgreSQL / Redis</div>
+                <div className="what-tags">Docker / CI/CD</div>
+                <div className="what-tags">Azure AI / AWS Bedrock</div>
+                <div className="what-tags">Playwright / WASM</div>
+                <div className="what-tags">Next.js / TypeScript</div>
               </div>
               <div className="what-arrow"></div>
             </div>

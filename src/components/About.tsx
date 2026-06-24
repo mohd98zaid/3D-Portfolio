@@ -6,11 +6,7 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          I am currently co-founder of CallHQ.ai, building real-time voice AI for
-          businesses. I am a technologist at heart with strong business judgment—
-          I enjoy going from product strategy to hands-on engineering. My background
-          spans leadership at Adobe, founding Broki and CallHQ, and shipping
-          full-stack products end to end.
+          I'm a GenAI Engineer and Architect with over 5 years of experience at TCS, specializing in building production grade LLM systems, agentic workflows, and advanced RAG architectures. I've a proven track record of delivering end-to-end GenAI products across the Healthcare and BFSI sectors. My expertise spans LangChain and LangGraph orchestration, automated code modernization, and design-to-code automation leveraging Claude AI. Backed by deep hands-on experience with Python, FastAPI, vector DB, and cloud AI ecosystems, I successfully lead engineering teams while seamlessly bridging the gap between technical architecture, robust delivery, and clear client communication.
         </p>
       </div>
     </div>

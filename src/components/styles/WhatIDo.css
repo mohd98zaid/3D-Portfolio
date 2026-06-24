@@ -56,6 +56,11 @@
   padding: 40px 50px;
 }
 
+.what-noTouch:hover p,
+.what-content-active p {
+  -webkit-line-clamp: unset;
+}
+
 .what-noTouch:hover ~ .what-content,
 .what-box-in:hover .what-noTouch:not(:hover),
 .what-content.what-sibling {
@@ -72,6 +77,10 @@
   line-height: 18px;
   font-weight: 200;
   letter-spacing: 0.7px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .what-content h4 {
   font-weight: 300;

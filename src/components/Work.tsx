@@ -5,32 +5,32 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "CallHQ",
-    category: "Voice AI Calling Platform",
-    tools: "Voice AI, Calling Automation, CRM Integrations",
-    image: "/images/callhq.png",
-    link: "https://callhq.ai",
+    title: "FileForge",
+    category: "Browser-Native AI File Toolkit",
+    tools: "Next.js, TypeScript, ONNX Runtime Web, Tesseract.js, FFmpeg WASM, Tailwind",
+    image: "/images/fileforge.png",
+    link: "https://forgetech.vercel.app",
   },
   {
-    title: "Whatsapp Automation",
-    category: "WABA Application",
-    tools: "WhatsApp Business API, Workflow Automation, Notifications",
-    image: "/images/whatsapp.png",
-    link: "https://whatsapp.callhq.ai",
+    title: "RepairDeskz",
+    category: "AI-Powered Repair Shop Management",
+    tools: "Next.js, FastAPI, PostgreSQL, Redis, WhatsApp Business API, Three.js, GSAP",
+    image: "/images/repairdeskz.png",
+    link: "https://repairdeskz.vercel.app",
   },
   {
-    title: "Broki",
-    category: "Real Estate Platform for FnB Industry",
-    tools: "Property Discovery, Lead Management, Marketplace Workflows",
-    image: "/images/broki.png",
-    link: "https://broki.in",
+    title: "QuantDSS",
+    category: "Quantitative Trading Decision Support",
+    tools: "FastAPI, Python, Next.js, PostgreSQL/TimescaleDB, Redis, Kafka, Docker",
+    image: "/images/quantdss.png",
+    link: "https://github.com/mohd98zaid/QuantDSS",
   },
   {
-    title: "Orrdr.com",
-    category: "Ecommerce Platform and Mobile App",
-    tools: "Ecommerce, Mobile Experience, Order Management",
-    image: "/images/orrdr.png",
-    link: "https://orrdr.com",
+    title: "Job-Pilot",
+    category: "AI Job Discovery Engine & Automator",
+    tools: "Python, AI Agents, APIs, Scrapers",
+    image: "/images/jobpilot.png",
+    link: "https://github.com/mohd98zaid/Job-Pilot",
   },
 ];
 
@@ -91,7 +91,8 @@ const Work = () => {
             <div
               className="carousel-track"
               style={{
-                transform: `translateX(-${currentIndex * 100}%)`,
+                width: `${projects.length * 100}%`,
+                transform: `translateX(-${currentIndex * (100 / projects.length)}%)`,
               }}
             >
               {projects.map((project, index) => (
@@ -115,7 +116,7 @@ const Work = () => {
                     <div className="carousel-image-wrapper">
                       <WorkImage
                         image={project.image}
-                        alt={project.title}
+                        alt={`${project.title} - ${project.category}`}
                         link={project.link}
                       />
                     </div>
