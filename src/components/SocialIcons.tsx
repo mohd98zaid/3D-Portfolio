@@ -4,7 +4,7 @@ import {
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import HoverLinks from "./HoverLinks";
 
 const SocialIcons = () => {
@@ -54,6 +54,26 @@ const SocialIcons = () => {
     });
   }, []);
 
+  const [resumeData, setResumeData] = useState({
+    url: "/Zaid_GenAI_CV.pdf",
+    filename: "Zaid_GenAI_CV.pdf",
+  });
+
+  useEffect(() => {
+    fetch("https://api.country.is/")
+      .then((res) => res.json())
+      .then((data) => {
+        const gccCountries = ["SA", "AE", "QA", "KW", "BH", "OM"];
+        if (gccCountries.includes(data.country)) {
+          setResumeData({
+            url: "/Zaid_GenAI_CV_Gulf_GCC.pdf",
+            filename: "Zaid_GenAI_CV_Gulf_GCC.pdf",
+          });
+        }
+      })
+      .catch((err) => console.error("Could not fetch country:", err));
+  }, []);
+
   return (
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
@@ -78,20 +98,12 @@ const SocialIcons = () => {
           </a>
         </span>
       </div>
-      <div className="resume-buttons-container">
-        <a className="resume-button" href="/Zaid_GenAI_CV.pdf" download="Zaid_GenAI_CV.pdf" aria-label="Download Global Resume">
-          <HoverLinks text="RESUME (GLOBAL)" />
-          <span>
-            <TbNotes />
-          </span>
-        </a>
-        <a className="resume-button" href="/Zaid_GenAI_CV_Gulf_GCC.pdf" download="Zaid_GenAI_CV_Gulf_GCC.pdf" aria-label="Download GCC Resume">
-          <HoverLinks text="RESUME (GCC)" />
-          <span>
-            <TbNotes />
-          </span>
-        </a>
-      </div>
+      <a className="resume-button" href={resumeData.url} download={resumeData.filename} aria-label="Download Resume">
+        <HoverLinks text="RESUME" />
+        <span>
+          <TbNotes />
+        </span>
+      </a>
     </div>
   );
 };
