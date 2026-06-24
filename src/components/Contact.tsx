@@ -9,25 +9,29 @@ const Contact = () => {
         <div className="contact-flex">
           <div className="contact-box">
             <h4>Connect</h4>
-            <p>
-              <a
-                href="https://www.linkedin.com/in/mohd98zaid/"
-                target="_blank"
-                rel="noreferrer"
-                data-cursor="disable"
-              >
-                LinkedIn - mohd98zaid
-              </a>
-            </p>
+            <ul className="contact-desc">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/mohd98zaid/"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-cursor="disable"
+                >
+                  LinkedIn - mohd98zaid
+                </a>
+              </li>
+            </ul>
             <h4>Education</h4>
-            <p>
-              B.Tech - Computer Science &amp; Engineering, Dr APJ Abdul Kalam
-              Technical University, Lucknow - 2015-2019
-            </p>
-            <p>
-              Intermediate - Mathematics, Physics, Chemistry, SSV Inter College,
-              Ayodhya - 2013-2015
-            </p>
+            <ul className="contact-desc">
+              <li>
+                B.Tech - Computer Science and Engineering <br />
+                Dr. APJ Abdul Kalam Technical University, Lucknow - 2015-2019
+              </li>
+              <li>
+                Intermediate - Mathematics <br />
+                SSV Inter College, Ayodhya - 2013-2015
+              </li>
+            </ul>
           </div>
           <div className="contact-box">
             <h4>Social</h4>
@@ -52,7 +56,7 @@ const Contact = () => {
           </div>
           <div className="contact-box">
             <h2>
-              Designed and Developed <br /> by <span>Mohammad Zaid</span>
+              Architected &amp; Engineered <br /> by <span>Mohammad Zaid</span>
             </h2>
             <h5>
               <MdCopyright /> 2026

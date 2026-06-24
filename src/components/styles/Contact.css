@@ -30,9 +30,29 @@
   flex-direction: column;
 }
 
-.contact-flex p {
+.contact-desc {
   margin-top: 10px;
   margin-bottom: 20px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style-type: disc;
+}
+
+.contact-desc li {
+  color: #d1d5db;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+}
+
+.contact-desc li:hover {
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+.contact-desc li::marker {
+  color: var(--accentColor);
 }
 
 a.contact-social {
@@ -86,7 +106,7 @@ a.contact-social {
     font-size: 20px;
   }
 
-  .contact-flex p {
+  .contact-desc {
     margin-top: 0px;
   }
 }
@@ -97,7 +117,7 @@ a.contact-social {
     gap: 40px;
   }
 
-  .contact-flex p {
+  .contact-desc {
     margin-bottom: 0px;
   }
 

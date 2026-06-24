@@ -78,12 +78,20 @@ const SocialIcons = () => {
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#" aria-label="Download Resume">
-        <HoverLinks text="RESUME" />
-        <span>
-          <TbNotes />
-        </span>
-      </a>
+      <div className="resume-buttons-container">
+        <a className="resume-button" href="/Zaid_GenAI_CV.pdf" download="Zaid_GenAI_CV.pdf" aria-label="Download Global Resume">
+          <HoverLinks text="RESUME (GLOBAL)" />
+          <span>
+            <TbNotes />
+          </span>
+        </a>
+        <a className="resume-button" href="/Zaid_GenAI_CV_Gulf_GCC.pdf" download="Zaid_GenAI_CV_Gulf_GCC.pdf" aria-label="Download GCC Resume">
+          <HoverLinks text="RESUME (GCC)" />
+          <span>
+            <TbNotes />
+          </span>
+        </a>
+      </div>
     </div>
   );
 };
