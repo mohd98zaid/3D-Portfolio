@@ -3,36 +3,9 @@ import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
-const projects = [
-  {
-    title: "FileForge",
-    category: "Browser-Native AI File Toolkit",
-    tools: "Next.js, TypeScript, ONNX Runtime Web, Tesseract.js, FFmpeg WASM, Tailwind",
-    image: "/images/fileforge.png",
-    link: "https://forgetech.vercel.app",
-  },
-  {
-    title: "RepairDeskz",
-    category: "AI-Powered Repair Shop Management",
-    tools: "Next.js, FastAPI, PostgreSQL, Redis, WhatsApp Business API, Three.js, GSAP",
-    image: "/images/repairdeskz.png",
-    link: "https://repairdeskz.vercel.app",
-  },
-  {
-    title: "QuantDSS",
-    category: "Quantitative Trading Decision Support",
-    tools: "FastAPI, Python, Next.js, PostgreSQL/TimescaleDB, Redis, Kafka, Docker",
-    image: "/images/quantdss.png",
-    link: "https://github.com/mohd98zaid/QuantDSS",
-  },
-  {
-    title: "Job-Pilot",
-    category: "AI Job Discovery Engine & Automator",
-    tools: "Python, AI Agents, APIs, Scrapers",
-    image: "/images/jobpilot.png",
-    link: "https://github.com/mohd98zaid/Job-Pilot",
-  },
-];
+import { portfolioData } from "@/data/portfolioContent";
+
+const projects = portfolioData.projects;
 
 const Work = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -59,7 +59,7 @@ const Contact = () => {
               Architected &amp; Engineered <br /> by <span>Mohammad Zaid</span>
             </h2>
             <h5>
-              <MdCopyright /> 2026
+              <MdCopyright /> {new Date().getFullYear()}
             </h5>
           </div>
         </div>
