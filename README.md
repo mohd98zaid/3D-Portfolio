@@ -34,6 +34,10 @@ This repository contains the source code for my personal 3D portfolio, built wit
    npm run dev
    ```
 
+## Acknowledgments
+
+A special thanks to [Akash R Malhotra](https://github.com/akashrmalhotra) for the incredible original design inspiration and foundation for this 3D portfolio!
+
 ## License
 
 This project is open source and available under the MIT License.
