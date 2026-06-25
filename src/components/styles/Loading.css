@@ -332,7 +332,7 @@
   left: 0;
   width: 100%;
   transform: translateY(-50%);
-  color: var(--backgroundColor);
+  color: rgba(255, 255, 255, 0.4);
   font-size: 60px;
   font-weight: 600;
   text-transform: uppercase;
@@ -347,7 +347,7 @@
   content: "";
   width: 20px;
   height: 20px;
-  background-color: var(--backgroundColor);
+  background-color: var(--accentColor);
   position: absolute;
   top: 50%;
   border-radius: 50px;
