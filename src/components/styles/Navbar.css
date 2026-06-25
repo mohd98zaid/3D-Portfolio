@@ -40,6 +40,18 @@
   letter-spacing: 1px;
   font-weight: 500;
 }
+.navbar-profile-pic {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accentColor);
+  transition: transform 0.3s ease;
+}
+
+.navbar-profile-pic:hover {
+  transform: scale(1.1);
+}
 .navbar-title {
   font-weight: 700;
   font-size: 14px;
