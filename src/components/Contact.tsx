@@ -60,6 +60,15 @@ const Contact = () => {
             >
               Email <MdArrowOutward />
             </a>
+            <a
+              href="https://wa.me/"
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="disable"
+              className="contact-social"
+            >
+              WhatsApp <MdArrowOutward />
+            </a>
           </div>
           <div className="contact-box">
             <h2>

@@ -1,6 +1,7 @@
 import {
   FaGithub,
   FaLinkedinIn,
+  FaWhatsapp,
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
@@ -104,6 +105,16 @@ const SocialIcons = () => {
             aria-label="Email"
           >
             <MdEmail />
+          </a>
+        </span>
+        <span>
+          <a
+            href="https://wa.me/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="WhatsApp"
+          >
+            <FaWhatsapp />
           </a>
         </span>
       </div>
