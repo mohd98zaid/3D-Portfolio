@@ -46,7 +46,7 @@ const Loading = ({ percent }: { percent: number }) => {
     <>
       <div className="loading-header">
         <a href="/#" className="loader-title" data-cursor="disable">
-          MZ
+          <img src="/images/profile.jpg" alt="MZ Profile" className="navbar-profile-pic" />
         </a>
         <div className={`loaderGame ${clicked && "loader-out"}`}>
           <div className="loaderGame-container">
@@ -60,6 +60,14 @@ const Loading = ({ percent }: { percent: number }) => {
         </div>
       </div>
       <div className="loading-screen">
+        <video 
+          className={`loading-video ${clicked && "video-fade-out"}`}
+          src="/videos/loading-bg.mp4" 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+        />
         <div className="loading-marquee">
           <Marquee>
             <span> GenAI Engineer &amp; Architect</span> <span>LLMs &amp; Agentic AI</span>
