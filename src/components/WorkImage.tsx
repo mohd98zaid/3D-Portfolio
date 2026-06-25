@@ -37,7 +37,7 @@ const WorkImage = (props: Props) => {
             <MdArrowOutward />
           </div>
         )}
-        <img src={props.image} alt={props.alt} />
+        <img src={props.image} alt={props.alt || "Portfolio project"} loading="lazy" />
         {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
       </a>
     </div>

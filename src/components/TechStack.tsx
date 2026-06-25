@@ -168,12 +168,17 @@ const TechStack = () => {
     );
   }, []);
 
+  const sphereMaterials = useMemo(() => {
+    return spheres.map(() => materials[Math.floor(Math.random() * materials.length)]);
+  }, [materials]);
+
   return (
     <div className="techstack">
       <h2> My Techstack</h2>
 
       <Canvas
         shadows
+        dpr={[1, 2]}
         gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
         camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
         onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
@@ -195,7 +200,7 @@ const TechStack = () => {
             <SphereGeo
               key={i}
               {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
+              material={sphereMaterials[i]}
               isActive={isActive}
             />
           ))}
