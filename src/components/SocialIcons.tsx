@@ -4,6 +4,7 @@ import {
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
+import { MdEmail } from "react-icons/md";
 import { useEffect, useState } from "react";
 import HoverLinks from "./HoverLinks";
 
@@ -95,6 +96,14 @@ const SocialIcons = () => {
             aria-label="LinkedIn Profile"
           >
             <FaLinkedinIn />
+          </a>
+        </span>
+        <span>
+          <a
+            href="mailto:mohd98zaid@gmail.com"
+            aria-label="Email"
+          >
+            <MdEmail />
           </a>
         </span>
       </div>

@@ -53,6 +53,13 @@ const Contact = () => {
             >
               LinkedIn <MdArrowOutward />
             </a>
+            <a
+              href="mailto:mohd98zaid@gmail.com"
+              data-cursor="disable"
+              className="contact-social"
+            >
+              Email <MdArrowOutward />
+            </a>
           </div>
           <div className="contact-box">
             <h2>
