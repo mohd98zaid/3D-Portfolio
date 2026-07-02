@@ -43,10 +43,8 @@
 }
 
 .carousel-slide {
-  flex: 1;
   box-sizing: border-box;
   padding: 50px 0;
-  min-width: 100%;
 }
 
 .carousel-content {
@@ -296,13 +294,14 @@
 
   /* Larger dots for touch */
   .carousel-dot {
-    width: 14px;
-    height: 14px;
-    min-width: 44px;
-    min-height: 44px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 0;
   }
 
   .carousel-dot::after {
