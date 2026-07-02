@@ -11,13 +11,20 @@ interface Props {
 const WorkImage = (props: Props) => {
   const [isVideo, setIsVideo] = useState(false);
   const [video, setVideo] = useState("");
+
   const handleMouseEnter = async () => {
-    if (props.video) {
+    if (props.video && !video) {
+      try {
+        const response = await fetch(`/videos/${props.video}`);
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        setVideo(blobUrl);
+        setIsVideo(true);
+      } catch {
+        // Video fetch failed, stay on image
+      }
+    } else if (props.video) {
       setIsVideo(true);
-      const response = await fetch(`src/assets/${props.video}`);
-      const blob = await response.blob();
-      const blobUrl = URL.createObjectURL(blob);
-      setVideo(blobUrl);
     }
   };
 

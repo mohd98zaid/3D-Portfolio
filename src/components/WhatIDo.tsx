@@ -1,29 +1,47 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import "./styles/WhatIDo.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const WhatIDo = () => {
   const containerRef = useRef<(HTMLDivElement | null)[]>([]);
+  const handlersRef = useRef<Map<HTMLDivElement, () => void>>(new Map());
+
   const setRef = (el: HTMLDivElement | null, index: number) => {
     containerRef.current[index] = el;
   };
+
+  const handleClick = useCallback((container: HTMLDivElement) => {
+    container.classList.toggle("what-content-active");
+    container.classList.remove("what-sibling");
+    if (container.parentElement) {
+      const siblings = Array.from(container.parentElement.children);
+      siblings.forEach((sibling) => {
+        if (sibling !== container) {
+          sibling.classList.remove("what-content-active");
+          sibling.classList.toggle("what-sibling");
+        }
+      });
+    }
+  }, []);
+
   useEffect(() => {
     if (ScrollTrigger.isTouch) {
       containerRef.current.forEach((container) => {
         if (container) {
           container.classList.remove("what-noTouch");
-          container.addEventListener("click", () => handleClick(container));
+          const handler = () => handleClick(container);
+          handlersRef.current.set(container, handler);
+          container.addEventListener("click", handler);
         }
       });
     }
     return () => {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.removeEventListener("click", () => handleClick(container));
-        }
+      handlersRef.current.forEach((handler, container) => {
+        container.removeEventListener("click", handler);
       });
+      handlersRef.current.clear();
     };
-  }, []);
+  }, [handleClick]);
   return (
     <div className="whatIDO">
       <div className="what-box">
@@ -147,18 +165,3 @@ const WhatIDo = () => {
 };
 
 export default WhatIDo;
-
-function handleClick(container: HTMLDivElement) {
-  container.classList.toggle("what-content-active");
-  container.classList.remove("what-sibling");
-  if (container.parentElement) {
-    const siblings = Array.from(container.parentElement.children);
-
-    siblings.forEach((sibling) => {
-      if (sibling !== container) {
-        sibling.classList.remove("what-content-active");
-        sibling.classList.toggle("what-sibling");
-      }
-    });
-  }
-}

@@ -12,7 +12,7 @@ export function initialFX() {
     delay: 1,
   });
 
-  var landingText = new SplitText(
+  const landingText = new SplitText(
     [".landing-info h3", ".landing-intro h2", ".landing-intro h1"],
     {
       type: "chars,lines",
@@ -33,7 +33,7 @@ export function initialFX() {
     }
   );
 
-  let TextProps = { type: "chars,lines", linesClass: "split-h2" };
+  const TextProps = { type: "chars,lines", linesClass: "split-h2" };
 
   // Fade in the teal h2 block that will contain the rotating text
   gsap.fromTo(
@@ -60,9 +60,9 @@ export function initialFX() {
   );
 
   // Split the three text strings
-  var text1 = new SplitText(".landing-h2-1", TextProps); // "Architect"
-  var text2 = new SplitText(".landing-h2-2", TextProps); // "Agentic AI"
-  var text3 = new SplitText(".landing-h2-3", TextProps); // "LLM Engineer"
+  const text1 = new SplitText(".landing-h2-1", TextProps); // "Architect"
+  const text2 = new SplitText(".landing-h2-2", TextProps); // "Agentic AI"
+  const text3 = new SplitText(".landing-h2-3", TextProps); // "LLM Engineer"
   
   // Immediately hide texts 2 and 3 so they start off-screen
   gsap.set(text2.chars, { y: 80, opacity: 0 });

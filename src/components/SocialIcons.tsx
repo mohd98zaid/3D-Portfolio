@@ -78,9 +78,31 @@ const SocialIcons = () => {
   });
 
   useEffect(() => {
+    const CACHE_KEY = "country_code";
+    const CACHE_TTL = 86400000; // 24 hours
+
+    const cached = sessionStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const { country, timestamp } = JSON.parse(cached);
+      if (Date.now() - timestamp < CACHE_TTL) {
+        const gccCountries = ["SA", "AE", "QA", "KW", "BH", "OM"];
+        if (gccCountries.includes(country)) {
+          setResumeData({
+            url: "/Zaid_GenAI_CV_Gulf_GCC.pdf",
+            filename: "Zaid_GenAI_CV_Gulf_GCC.pdf",
+          });
+        }
+        return;
+      }
+    }
+
     fetch("https://api.country.is/")
       .then((res) => res.json())
       .then((data) => {
+        sessionStorage.setItem(
+          CACHE_KEY,
+          JSON.stringify({ country: data.country, timestamp: Date.now() })
+        );
         const gccCountries = ["SA", "AE", "QA", "KW", "BH", "OM"];
         if (gccCountries.includes(data.country)) {
           setResumeData({
@@ -89,7 +111,7 @@ const SocialIcons = () => {
           });
         }
       })
-      .catch((err) => console.error("Could not fetch country:", err));
+      .catch(() => {});
   }, []);
 
   return (

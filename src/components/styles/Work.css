@@ -142,6 +142,11 @@
   box-shadow: 0 0 20px rgba(94, 234, 212, 0.15);
 }
 
+.carousel-arrow:focus-visible {
+  outline: 2px solid var(--accentColor);
+  outline-offset: 2px;
+}
+
 .carousel-arrow-left {
   left: -70px;
 }
