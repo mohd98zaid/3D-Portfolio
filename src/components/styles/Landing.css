@@ -277,6 +277,63 @@ h2.landing-info-h2 {
   pointer-events: none;
 }
 
+/* Mobile: Reposition text to avoid 3D model overlap, prevent overflow */
+@media (hover: none) and (pointer: coarse) {
+  .landing-intro {
+    top: 15%;
+    left: 5%;
+  }
+
+  .landing-intro h2 {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .landing-intro h1 {
+    font-size: 26px;
+    line-height: 26px;
+  }
+
+  .landing-info {
+    right: 5%;
+    left: 5%;
+    transform: none;
+    bottom: 100px;
+    text-align: left;
+  }
+
+  .landing-info h3 {
+    font-size: 16px;
+  }
+
+  .landing-info h2 {
+    margin-left: 0;
+    font-size: 24px;
+    line-height: 30px;
+    white-space: normal;
+  }
+
+  h2.landing-info-h2 {
+    font-size: 28px;
+    width: 100%;
+  }
+
+  .character-model {
+    height: 60vh;
+    bottom: 150px;
+    opacity: 0.7;
+  }
+
+  .character-model::after {
+    height: 150px;
+  }
+
+  /* Hide decorative circles on mobile - battery waste */
+  .landing-circle1,
+  .landing-circle2 {
+    display: none;
+  }
+}
 
 @media screen and (min-width: 500px) {
   .landing-circle2 {

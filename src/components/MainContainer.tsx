@@ -12,15 +12,21 @@ const WhatIDo = lazy(() => import("./WhatIDo"));
 const Work = lazy(() => import("./Work"));
 const TechStack = lazy(() => import("./TechStack"));
 
+const isTouchDevice = () => {
+  return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+};
+
 const MainContainer = ({ children }: PropsWithChildren) => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
     window.innerWidth > 1024
   );
+  const [isTouch, setIsTouch] = useState<boolean>(isTouchDevice());
 
   useEffect(() => {
     const resizeHandler = () => {
       setSplitText();
       setIsDesktopView(window.innerWidth > 1024);
+      setIsTouch(isTouchDevice());
     };
     resizeHandler();
     window.addEventListener("resize", resizeHandler);
@@ -44,7 +50,8 @@ const MainContainer = ({ children }: PropsWithChildren) => {
               <WhatIDo />
               <Career />
               <Work />
-              {isDesktopView && <TechStack />}
+              {/* Hide TechStack on mobile - heavy for touch devices */}
+              {isDesktopView && !isTouch && <TechStack />}
               <Contact />
             </Suspense>
           </div>

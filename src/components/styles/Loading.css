@@ -410,6 +410,30 @@
   }
 }
 
+/* Mobile: Larger touch target for loading button */
+@media (hover: none) and (pointer: coarse) {
+  .loading-button {
+    padding: 24px 48px;
+    min-height: 56px;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loading-marquee {
+    font-size: 36px;
+  }
+
+  .loading-marquee span {
+    padding: 0 30px;
+  }
+
+  .loaderGame-container {
+    transform: scale(0.3);
+  }
+}
+
 @media only screen and (min-width: 500px) {
   .loading-header {
     padding: 20px 0px;

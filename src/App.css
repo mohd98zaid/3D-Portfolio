@@ -9,6 +9,17 @@
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
+
+/* Mobile: Better container sizing */
+@media (hover: none) and (pointer: coarse) {
+  .section-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+}
+
 @media only screen and (max-width: 1600px) {
   .section-container {
     width: 1200px;

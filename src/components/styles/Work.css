@@ -32,6 +32,8 @@
   width: 100%;
   border-top: 1px solid #363636;
   border-bottom: 1px solid #363636;
+  /* Touch: allow horizontal swipe */
+  touch-action: pan-y;
 }
 
 .carousel-track {
@@ -44,6 +46,7 @@
   flex: 1;
   box-sizing: border-box;
   padding: 50px 0;
+  min-width: 100%;
 }
 
 .carousel-content {
@@ -230,6 +233,103 @@
   max-width: 100%;
   max-height: 400px;
   border-radius: 8px;
+}
+
+/* ── Mobile: Touch-friendly carousel ── */
+@media (hover: none) and (pointer: coarse) {
+  .work-section {
+    padding: 40px 0;
+  }
+
+  .work-section h2 {
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+
+  .carousel-slide {
+    padding: 24px 0;
+  }
+
+  .carousel-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .carousel-info {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .carousel-number h3 {
+    font-size: 32px;
+  }
+
+  .carousel-details h4 {
+    font-size: 20px;
+  }
+
+  .carousel-image-wrapper {
+    width: 100%;
+  }
+
+  .work-image img {
+    max-height: 200px;
+    border-radius: 12px;
+  }
+
+  /* Larger arrows for touch */
+  .carousel-arrow {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .carousel-arrow-left {
+    left: 8px;
+  }
+
+  .carousel-arrow-right {
+    right: 8px;
+  }
+
+  /* Larger dots for touch */
+  .carousel-dot {
+    width: 14px;
+    height: 14px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-dot::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+  }
+
+  .carousel-dot-active::after {
+    background: var(--accentColor);
+    border-color: var(--accentColor);
+  }
+
+  .carousel-dots {
+    margin-top: 20px;
+    gap: 8px;
+  }
+
+  /* Work link always visible on mobile (no hover) */
+  .work-link {
+    opacity: 0.8;
+    width: 48px;
+    height: 48px;
+  }
 }
 
 /* ── Responsive ── */

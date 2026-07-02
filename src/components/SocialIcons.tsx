@@ -9,13 +9,24 @@ import { MdEmail } from "react-icons/md";
 import { useEffect, useState } from "react";
 import HoverLinks from "./HoverLinks";
 
+const isTouchDevice = () => {
+  return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+};
+
 const SocialIcons = () => {
   useEffect(() => {
+    // Skip mouse-follow animation on touch devices
+    if (isTouchDevice()) return;
+
     const social = document.getElementById("social") as HTMLElement;
+    if (!social) return;
+
+    const cleanupFns: (() => void)[] = [];
 
     social.querySelectorAll("span").forEach((item) => {
       const elem = item as HTMLElement;
       const link = elem.querySelector("a") as HTMLElement;
+      if (!link) return;
 
       const rect = elem.getBoundingClientRect();
       let mouseX = rect.width / 2;
@@ -23,6 +34,7 @@ const SocialIcons = () => {
       let currentX = 0;
       let currentY = 0;
 
+      let animFrameId: number;
       const updatePosition = () => {
         currentX += (mouseX - currentX) * 0.1;
         currentY += (mouseY - currentY) * 0.1;
@@ -30,7 +42,7 @@ const SocialIcons = () => {
         link.style.setProperty("--siLeft", `${currentX}px`);
         link.style.setProperty("--siTop", `${currentY}px`);
 
-        requestAnimationFrame(updatePosition);
+        animFrameId = requestAnimationFrame(updatePosition);
       };
 
       const onMouseMove = (e: MouseEvent) => {
@@ -47,13 +59,17 @@ const SocialIcons = () => {
       };
 
       document.addEventListener("mousemove", onMouseMove);
-
       updatePosition();
 
-      return () => {
-        elem.removeEventListener("mousemove", onMouseMove);
-      };
+      cleanupFns.push(() => {
+        document.removeEventListener("mousemove", onMouseMove);
+        cancelAnimationFrame(animFrameId);
+      });
     });
+
+    return () => {
+      cleanupFns.forEach((fn) => fn());
+    };
   }, []);
 
   const [resumeData, setResumeData] = useState({

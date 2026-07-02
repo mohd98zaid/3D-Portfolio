@@ -23,6 +23,14 @@
 .cursor-disable {
   --size: 0px;
 }
+
+/* Hide custom cursor on touch devices - no mouse, wastes battery */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-main {
+    display: none !important;
+  }
+}
+
 @media only screen and (min-width: 600px) {
   .cursor-main {
     --size: 50px;

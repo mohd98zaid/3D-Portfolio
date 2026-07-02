@@ -13,6 +13,10 @@ import {
 import setAnimations from "./utils/animationUtils";
 import { setProgress } from "../Loading";
 
+const isTouchDevice = () => {
+  return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+};
+
 const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
   const hoverDivRef = useRef<HTMLDivElement>(null);
@@ -22,17 +26,19 @@ const Scene = () => {
   const [character, setChar] = useState<THREE.Object3D | null>(null);
   useEffect(() => {
     if (canvasDiv.current) {
-      let rect = canvasDiv.current.getBoundingClientRect();
-      let container = { width: rect.width, height: rect.height };
+      const rect = canvasDiv.current.getBoundingClientRect();
+      const container = { width: rect.width, height: rect.height };
       const aspect = container.width / container.height;
       const scene = sceneRef.current;
+      const isMobile = isTouchDevice();
 
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
-        antialias: true,
+        antialias: !isMobile, // Disable antialiasing on mobile for performance
       });
       renderer.setSize(container.width, container.height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      // Lower pixel ratio on mobile to save battery
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1;
       canvasDiv.current.appendChild(renderer.domElement);
@@ -50,15 +56,17 @@ const Scene = () => {
       const clock = new THREE.Clock();
 
       const light = setLighting(scene);
-      let progress = setProgress((value) => setLoading(value));
+      const progress = setProgress((value) => setLoading(value));
       const { loadCharacter } = setCharacter(renderer, scene, camera);
 
       loadCharacter().then((gltf) => {
         if (gltf) {
           const animations = setAnimations(gltf);
-          hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
+          if (hoverDivRef.current) {
+            animations.hover(gltf, hoverDivRef.current);
+          }
           mixer = animations.mixer;
-          let character = gltf.scene;
+          const character = gltf.scene;
           setChar(character);
           scene.add(character);
           headBone = character.getObjectByName("spine006") || null;
